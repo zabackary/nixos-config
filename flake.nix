@@ -56,7 +56,7 @@
           modules = [
             ./home/fish/default.nix
           ];
-          pkgs = pkgsFor.x86_64-linux;
+          pkgs = nixpkgs.legacyPackages.x86_64-darwin;
           extraSpecialArgs = {
             inherit inputs;
           };
