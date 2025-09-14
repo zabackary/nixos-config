@@ -12,11 +12,10 @@
     # Flatpaks
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.6.0";
 
-    # For LINE
-    erosanix.url = "github:emmanuelrosa/erosanix";
-
     # FreeShow
     freeshow.url = "path:./pkgs/freeshow";
+    # LINE
+    line-messenger.url = "path:./pkgs/line-messenger";
   };
 
   outputs =

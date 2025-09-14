@@ -145,7 +145,7 @@
     keepassxc
     bash
     imagemagickBig
-    inputs.erosanix.packages.x86_64-linux.line
+    inputs.line-messenger.packages.x86_64-linux.line-messenger
     inputs.freeshow.packages.x86_64-linux.freeshow
   ];
 
