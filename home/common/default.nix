@@ -1,21 +1,29 @@
-{ pkgs, nix-flatpak,  ... }:
-
 {
-  imports = [
-    nix-flatpak.homeManagerModules.nix-flatpak
-    ./flatpak.nix
-  ];
+  inputs,
+  lib,
+  pkgs,
+  ...
+}:
+{
+  home = {
+    username = lib.mkDefault "zabackary";
+    homeDirectory = lib.mkDefault "/home/${config.home.username}";
+    stateVersion = lib.mkDefault "22.05";
 
-  home.sessionVariables = {
-    XDG_DATA_DIRS="$XDG_DATA_DIRS:/usr/share:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share";
+    sessionVariables = {
+      XDG_DATA_DIRS = "$XDG_DATA_DIRS:/usr/share:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share";
+    };
   };
 
-  home.username = "zabackary";
-  home.homeDirectory = "/home/zabackary";
+  # Flatpaks
+  services.flatpak.update.auto.enable = false;
+  services.flatpak.uninstallUnmanaged = true;
+  # flatpak packages are in flatpak.nix
 
   home.packages = with pkgs; [
     starship
     neofetch
+    fastfetch
     ripgrep
     cowsay # why not
     file
@@ -34,38 +42,26 @@
     ethtool
     pciutils # lspci
     usbutils # lsusb
-    alacritty
+    p7zip # 7z
 
     # nix things
     nixfmt-rfc-style
-
-    # more gui apps
-    gimp3-with-plugins
-    inkscape-with-extensions
-    openshot-qt
-    remmina
-     
-    p7zip
-    kdePackages.plasma-browser-integration
-    
-    hunspell
-    hunspellDicts.en_US
-    
-    parted
-    gnome-disk-utility
+    nixd
   ];
+
+  # MARK: Shell configuration
 
   programs.bash = {
     enable = true;
     enableCompletion = true;
     bashrcExtra = '''';
 
-    # set some aliases, feel free to add more or remove some
     shellAliases = {
       pn = "pnpm";
     };
   };
 
+  # My starship prompt. It is basically purple.
   programs.starship = {
     enable = true;
     settings = {
@@ -111,6 +107,13 @@
     };
   };
 
+  # Random CLI tools
+  programs.direnv = {
+    enable = true;
+    enableBashIntegration = true;
+    nix-direnv.enable = true;
+  };
+
   programs.git = {
     enable = true;
     userName = "zabackary";
@@ -122,33 +125,10 @@
     };
   };
 
-  programs.alacritty = {
-    enable = true;
-    settings = {
-      blur = true;
-      resize_increments = true;
-    };
-  };
-
-  programs.vscode = {
-    enable = true;
-    package = pkgs.vscode.fhs;
-  };
-  
-  programs.direnv = {
-    enable = true;
-    enableBashIntegration = true;
-    nix-direnv.enable = true;
-  };
-  
   programs.gh = {
     enable = true;
     gitCredentialHelper = {
       enable = true;
     };
   };
-
-  # The state version is required and should stay at the version you
-  # originally installed.
-  home.stateVersion = "25.05";
 }

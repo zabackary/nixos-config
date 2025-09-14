@@ -28,23 +28,40 @@
       nix-flatpak,
       ...
     }@inputs:
+    let
+      lib = nixpkgs.lib // home-manager.lib;
+    in
     {
-      nixosConfigurations.shinjitsu = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = inputs;
-        modules = [
-          # Import the previous configuration.nix
-          ./configuration.nix
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = {
-              inherit nix-flatpak;
-            };
-            home-manager.users.zabackary = ./home.nix;
-          }
-        ];
+      nixosConfigurations = {
+        shinjitsu = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = inputs;
+          modules = [
+            ./hosts/shinjitsu
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = {
+                inherit inputs;
+              };
+              home-manager.users.zabackary = ./home/zabackary.nix;
+            }
+          ];
+        };
       };
+
+      homeConfigurations = {
+        "fish@pond" = lib.homeManagerConfiguration {
+          modules = [
+            ./home/fish/default.nix
+          ];
+          pkgs = pkgsFor.x86_64-linux;
+          extraSpecialArgs = {
+            inherit inputs;
+          };
+        };
+      };
+
     };
 }

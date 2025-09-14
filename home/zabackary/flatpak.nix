@@ -1,8 +1,4 @@
-# home.nix
-{ lib, ... }: {
-  services.flatpak.update.auto.enable = false;
-  services.flatpak.uninstallUnmanaged = true;
-
+{
   services.flatpak.packages = [
     "org.gnome.Snapshot"
     "us.zoom.Zoom"
@@ -17,5 +13,4 @@
     "org.gnome.Calendar"
     "org.kde.krdc"
   ];
-
 }
