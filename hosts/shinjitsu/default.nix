@@ -1,8 +1,7 @@
 {
   config,
   pkgs,
-  line-messenger,
-  freeshow,
+  inputs,
   ...
 }:
 {
@@ -146,8 +145,8 @@
     keepassxc
     bash
     imagemagickBig
-    line-messenger.packages.x86_64-linux.line-messenger
-    freeshow.packages.x86_64-linux.freeshow
+    inputs.erosanix.packages.x86_64-linux.line
+    inputs.freeshow.packages.x86_64-linux.freeshow
   ];
 
   # Fonts

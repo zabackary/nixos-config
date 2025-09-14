@@ -12,8 +12,9 @@
     # Flatpaks
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.6.0";
 
-    # LINE
-    line-messenger.url = "path:./line-messenger";
+    # For LINE
+    erosanix.url = "github:emmanuelrosa/erosanix";
+
     # FreeShow
     freeshow.url = "path:./freeshow";
   };
@@ -23,9 +24,6 @@
       self,
       nixpkgs,
       home-manager,
-      line-messenger,
-      freeshow,
-      nix-flatpak,
       ...
     }@inputs:
     let
