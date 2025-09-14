@@ -3,7 +3,7 @@
     "erosanix": {
       "inputs": {
         "flake-compat": "flake-compat",
-        "nixpkgs": "nixpkgs_2"
+        "nixpkgs": "nixpkgs"
       },
       "locked": {
         "lastModified": 1757697130,
@@ -37,7 +37,7 @@
     },
     "freeshow": {
       "inputs": {
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs_2"
       },
       "locked": {
         "path": "./freeshow",
@@ -70,21 +70,6 @@
         "type": "github"
       }
     },
-    "line-messenger": {
-      "inputs": {
-        "erosanix": "erosanix",
-        "nixpkgs": "nixpkgs_3"
-      },
-      "locked": {
-        "path": "./line-messenger",
-        "type": "path"
-      },
-      "original": {
-        "path": "./line-messenger",
-        "type": "path"
-      },
-      "parent": []
-    },
     "nix-flatpak": {
       "locked": {
         "lastModified": 1739444422,
@@ -103,22 +88,6 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1757750781,
-        "narHash": "sha256-eRD+cuq0zsQZ54UvRp2kKqNSMpSZ5lBrzzxxmFps7Ew=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "1bdb7730482f94be2b5207f0fe87a77ba5797341",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "master",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs_2": {
-      "locked": {
         "lastModified": 1756686622,
         "narHash": "sha256-7RIjltx7tQAr/pDmcb/zNNgRtUDlXh+EppSEqD4IIa8=",
         "owner": "NixOS",
@@ -133,7 +102,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_3": {
+    "nixpkgs_2": {
       "locked": {
         "lastModified": 1757750781,
         "narHash": "sha256-eRD+cuq0zsQZ54UvRp2kKqNSMpSZ5lBrzzxxmFps7Ew=",
@@ -149,7 +118,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_4": {
+    "nixpkgs_3": {
       "locked": {
         "lastModified": 1757545623,
         "narHash": "sha256-mCxPABZ6jRjUQx3bPP4vjA68ETbPLNz9V2pk9tO7pRQ=",
@@ -167,11 +136,11 @@
     },
     "root": {
       "inputs": {
+        "erosanix": "erosanix",
         "freeshow": "freeshow",
         "home-manager": "home-manager",
-        "line-messenger": "line-messenger",
         "nix-flatpak": "nix-flatpak",
-        "nixpkgs": "nixpkgs_4"
+        "nixpkgs": "nixpkgs_3"
       }
     }
   },
