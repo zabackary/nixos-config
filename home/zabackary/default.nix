@@ -9,7 +9,6 @@
     ../common
     inputs.nix-flatpak.homeManagerModules.nix-flatpak
     ./flatpak.nix
-    ./development.nix
   ];
 
   home.username = "zabackary";
@@ -38,6 +37,10 @@
     # Spell checking
     hunspell
     hunspellDicts.en_US
+
+    # Development
+    corepack_24
+    nodejs_24
   ];
 
   # MARK: GUI applications

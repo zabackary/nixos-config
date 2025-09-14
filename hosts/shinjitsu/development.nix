@@ -18,13 +18,6 @@ let
   ];
 in
 {
-  # Node.js development with pnpm, etc.
-  # I know this shouldn't be system-wide but I have a lot of legacy projects that I don't want to update
-  environment.systemPackages = with pkgs; [
-    corepack_24
-    nodejs_24
-  ];
-
   # MARK: Docker
   virtualisation.docker = {
     enable = false;
