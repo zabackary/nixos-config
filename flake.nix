@@ -16,7 +16,7 @@
     erosanix.url = "github:emmanuelrosa/erosanix";
 
     # FreeShow
-    freeshow.url = "path:./freeshow";
+    freeshow.url = "path:./pkgs/freeshow";
   };
 
   outputs =
