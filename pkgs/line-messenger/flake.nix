@@ -26,7 +26,11 @@
           default = self.packages.x86_64-linux.line-messenger;
 
           line-messenger = callPackage ./line-messenger.nix {
-            inherit mkWindowsAppNoCC copyDesktopIcons imagemagick;
+            inherit
+              mkWindowsAppNoCC
+              makeDesktopIcon
+              copyDesktopIcons
+              ;
 
             wine = wineWowPackages.base;
           };

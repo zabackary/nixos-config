@@ -2,10 +2,10 @@
   stdenv,
   lib,
   mkWindowsAppNoCC,
-  imagemagick,
   wine,
   fetchurl,
   makeDesktopItem,
+  makeDesktopIcon,
   copyDesktopItems,
   copyDesktopIcons, # This comes with erosanix. It's a handy way to generate desktop icons.
   unzip,
@@ -94,7 +94,7 @@ mkWindowsAppNoCC rec {
     }
   );
 
-  desktopIcon = makeDesktopItem {
+  desktopIcon = makeDesktopIcon {
     name = "LINE Messenger";
 
     src = fetchurl {

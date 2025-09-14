@@ -14,8 +14,10 @@
 
     # FreeShow
     freeshow.url = "path:./pkgs/freeshow";
+    freeshow.inputs.nixpkgs.follows = "nixpkgs";
     # LINE
     line-messenger.url = "path:./pkgs/line-messenger";
+    line-messenger.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
