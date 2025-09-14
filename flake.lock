@@ -40,11 +40,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "path": "./freeshow",
+        "path": "./pkgs/freeshow",
         "type": "path"
       },
       "original": {
-        "path": "./freeshow",
+        "path": "./pkgs/freeshow",
         "type": "path"
       },
       "parent": []
