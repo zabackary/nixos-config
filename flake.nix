@@ -45,7 +45,7 @@
               home-manager.extraSpecialArgs = {
                 inherit inputs;
               };
-              home-manager.users.zabackary = ./home/zabackary.nix;
+              home-manager.users.zabackary = ./home/zabackary/default.nix;
             }
           ];
         };
