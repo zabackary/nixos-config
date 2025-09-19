@@ -51,11 +51,11 @@
       };
 
       homeConfigurations = {
-        "fish@pond" = lib.homeManagerConfiguration {
+        "fish" = lib.homeManagerConfiguration {
           modules = [
             ./home/fish/default.nix
           ];
-          pkgs = nixpkgs.legacyPackages.x86_64-darwin;
+          pkgs = nixpkgs.legacyPackages.aarch64-darwin;
           extraSpecialArgs = {
             inherit inputs;
           };
