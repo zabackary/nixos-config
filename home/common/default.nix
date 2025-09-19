@@ -29,7 +29,6 @@
     gnupg
 
     # system utils
-    sysstat
     lm_sensors # for `sensors` command
     ethtool
     pciutils # lspci

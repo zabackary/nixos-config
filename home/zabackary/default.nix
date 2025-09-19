@@ -29,6 +29,9 @@
   home.packages = with pkgs; [
     kdePackages.plasma-browser-integration
 
+    # utils for x86_64
+    sysstat
+
     # GUI editors
     gimp3-with-plugins
     inkscape-with-extensions
