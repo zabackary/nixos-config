@@ -10,16 +10,7 @@
     username = lib.mkDefault "zabackary";
     homeDirectory = lib.mkDefault "/home/${config.home.username}";
     stateVersion = lib.mkDefault "22.05";
-
-    sessionVariables = {
-      XDG_DATA_DIRS = "$XDG_DATA_DIRS:/usr/share:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share";
-    };
   };
-
-  # Flatpaks
-  services.flatpak.update.auto.enable = false;
-  services.flatpak.uninstallUnmanaged = true;
-  # flatpak packages are in flatpak.nix
 
   home.packages = with pkgs; [
     starship
