@@ -31,6 +31,8 @@
 
     # utils for x86_64
     sysstat
+    lm_sensors # for `sensors` command
+    ethtool
 
     # GUI editors
     gimp3-with-plugins
