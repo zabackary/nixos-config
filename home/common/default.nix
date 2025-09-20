@@ -84,13 +84,13 @@
       };
       username = {
         style_root = "italic fg:#090c0c bg:#B6B6FC";
-        style_user = "";
+        style_user = "fg:#090c0c bg:#B6B6FC";
         format = "[$user]($style)";
       };
       hostname = {
-        ssh_symbol = "";
-        format = "[[@](fg:#494a70)[$ssh_symbol](fg:#2d7dfc)$hostname]($style)";
-        style = "";
+        ssh_symbol = " ";
+        format = "[[@](fg:#494a70)[$ssh_symbol](fg:#2d7dfc)$hostname | ]($style)";
+        style = "fg:#090c0c bg:#B6B6FC";
       };
       package.style = "bold fg:#B6B6FC";
       palettes.all_purple = {
