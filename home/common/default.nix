@@ -54,7 +54,7 @@
   programs.starship = {
     enable = true;
     settings = {
-      format = "[░▒▓](#B6B6FC)[ $username$hostname$localip󰣭 ](bg:#B6B6FC fg:#090c0c)[](bg:#9D9DDA fg:#B6B6FC)$directory[](fg:#9D9DDA bg:#545474)$git_branch$git_status[](fg:#545474) $all$character";
+      format = "[░▒▓](#B6B6FC)[ $username$hostname$localip ](bg:#B6B6FC fg:#090c0c)[](bg:#9D9DDA fg:#B6B6FC)$directory[](fg:#9D9DDA bg:#545474)$git_branch$git_status[](fg:#545474) $all$character";
       palette = "all_purple";
       character = {
         success_symbol = "[❯](bold fg:#B6B6FC)";
@@ -81,6 +81,16 @@
       git_status = {
         style = "bg:#545474";
         format = "[[($all_status$ahead_behind )](fg:#B6B6FC bg:#545474)]($style)";
+      };
+      username = {
+        style_root = "bold italic fg:#B6B6FC bg:#B6B6FC";
+        style_user = "bold fg:#B6B6FC bg:#B6B6FC";
+        format = "[$user]($style)";
+      };
+      hostname = {
+        ssh_symbol = "";
+        format = "@[$ssh_symbol$hostname]($style)";
+        style = "bold fg:#B6B6FC bg:#B6B6FC";
       };
       package.style = "bold fg:#B6B6FC";
       palettes.all_purple = {
