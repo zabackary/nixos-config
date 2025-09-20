@@ -83,14 +83,14 @@
         format = "[[($all_status$ahead_behind )](fg:#B6B6FC bg:#545474)]($style)";
       };
       username = {
-        style_root = "bold italic fg:#B6B6FC bg:#B6B6FC";
-        style_user = "bold fg:#B6B6FC bg:#B6B6FC";
+        style_root = "bold italic fg:#090c0c bg:#B6B6FC";
+        style_user = "bold fg:#090c0c bg:#B6B6FC";
         format = "[$user]($style)";
       };
       hostname = {
         ssh_symbol = "";
         format = "@[$ssh_symbol$hostname]($style)";
-        style = "bold fg:#B6B6FC bg:#B6B6FC";
+        style = "bold fg:#090c0c bg:#B6B6FC";
       };
       package.style = "bold fg:#B6B6FC";
       palettes.all_purple = {
