@@ -11,7 +11,10 @@
     ../common
   ];
 
-  home.username = "fish"; # glub glub
+  home = {
+    username = "fish"; # glub glub
+    homeDirectory = "/Users/fish";
+  };
 
   programs.home-manager.enable = true;
 
