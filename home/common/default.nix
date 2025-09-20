@@ -54,7 +54,7 @@
   programs.starship = {
     enable = true;
     settings = {
-      format = "[░▒▓](#B6B6FC)[ $username$hostname$localip ](bg:#B6B6FC fg:#090c0c)[](bg:#9D9DDA fg:#B6B6FC)$directory[](fg:#9D9DDA bg:#545474)$git_branch$git_status[](fg:#545474) $all$character";
+      format = "[░▒▓](#B6B6FC)[ $username$hostname$localip](bg:#B6B6FC fg:#090c0c)[ ](bold bg:#B6B6FC fg:#090c0c)[](bg:#9D9DDA fg:#B6B6FC)$directory[](fg:#9D9DDA bg:#545474)$git_branch$git_status[](fg:#545474) $all$character";
       palette = "all_purple";
       character = {
         success_symbol = "[❯](bold fg:#B6B6FC)";
@@ -88,8 +88,8 @@
         format = "[$user]($style)";
       };
       hostname = {
-        ssh_symbol = "";
-        format = "[[@](fg:#494a70 bg:#B6B6FC)[$ssh_symbol](fg:#2d7dfc bg:#B6B6FC)$hostname | ]($style)";
+        ssh_symbol = " ";
+        format = "[[@](fg:#494a70 bg:#B6B6FC)$hostname[$ssh_symbol](bold fg:#2d7dfc bg:#B6B6FC) | ]($style)";
         style = "fg:#090c0c bg:#B6B6FC";
       };
       package.style = "bold fg:#B6B6FC";
