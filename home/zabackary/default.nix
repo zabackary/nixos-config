@@ -26,38 +26,40 @@
   services.flatpak.update.auto.enable = false;
   services.flatpak.uninstallUnmanaged = true;
 
-  home.packages = with pkgs; [
-    kdePackages.plasma-browser-integration
+  home.packages =
+    (with pkgs; [
+      kdePackages.plasma-browser-integration
 
-    # utils for x86_64
-    sysstat
-    lm_sensors # for `sensors` command
-    ethtool
+      # utils for x86_64
+      sysstat
+      lm_sensors # for `sensors` command
+      ethtool
 
-    # GUI editors
-    gimp3-with-plugins
-    inkscape-with-extensions
-    openshot-qt
+      # GUI editors
+      gimp3-with-plugins
+      inkscape-with-extensions
+      openshot-qt
 
-    # GUI system utilities
-    alacritty
-    parted
-    gnome-disk-utility
-    remmina
+      # GUI system utilities
+      alacritty
+      parted
+      gnome-disk-utility
+      remmina
 
-    # Spell checking
-    hunspell
-    hunspellDicts.en_US
+      # Spell checking
+      hunspell
+      hunspellDicts.en_US
 
-    # Development
-    corepack_24
-    nodejs_24
-  ] ++ with inputs.nixpkgs-unstable.legacyPackages.x86_64-linux; [
-    firefox
-    vscode
-    google-chrome
-    keepassxc
-  ];
+      # Development
+      corepack_24
+      nodejs_24
+    ])
+    ++ (with inputs.nixpkgs-unstable.legacyPackages.x86_64-linux; [
+      firefox
+      vscode
+      google-chrome
+      keepassxc
+    ]);
 
   # MARK: GUI applications
   programs.alacritty = {
