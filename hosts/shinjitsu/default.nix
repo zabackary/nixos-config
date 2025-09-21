@@ -124,9 +124,6 @@
     ];
   };
 
-  # Install firefox.
-  programs.firefox.enable = true;
-
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -141,8 +138,6 @@
     git
     vim
     wget
-    google-chrome
-    keepassxc
     bash
     imagemagickBig
     inputs.line-messenger.packages.x86_64-linux.line-messenger

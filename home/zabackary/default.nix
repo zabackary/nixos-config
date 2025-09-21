@@ -52,6 +52,11 @@
     # Development
     corepack_24
     nodejs_24
+  ] ++ with inputs.nixpkgs-unstable.legacyPackages.x86_64-linux; [
+    firefox
+    vscode
+    google-chrome
+    keepassxc
   ];
 
   # MARK: GUI applications
