@@ -44,6 +44,7 @@
     parted
     gnome-disk-utility
     remmina
+    anki-bin
 
     # Spell checking
     hunspell
