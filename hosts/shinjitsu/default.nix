@@ -30,6 +30,31 @@
   networking.networkmanager.enable = true;
   networking.firewall.enable = true; # should be on by default anyway
 
+  # There's a hardware (?) issue with the QCNFA765 network card in this laptop
+  # that makes the system lock up after resuming from suspend using the default
+  # ath11k_pci driver. The workaround is to disable the kernel module upon
+  # suspend and re-enable it upon resume.
+  systemd.services.ath11k-suspend-fix = {
+    description = "Disable ath11k_pci on suspend";
+    wantedBy = [ "suspend.target" ];
+    before = [ "suspend.target" ];
+    serviceConfig = {
+      Type = "oneshot";
+      User = "root";
+      ExecStart = "/run/current-system/sw/bin/modprobe -r ath11k_pci";
+    };
+  };
+  systemd.services.ath11k-resume-fix = {
+    description = "Enable ath11k_pci on resume";
+    wantedBy = [ "suspend.target" ];
+    after = [ "suspend.target" ];
+    serviceConfig = {
+      Type = "oneshot";
+      User = "root";
+      ExecStart = "/run/current-system/sw/bin/modprobe ath11k_pci";
+    };
+  };
+
   services.avahi = {
     enable = true;
     nssmdns4 = true;
