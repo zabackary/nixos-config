@@ -135,6 +135,12 @@
     #jack.enable = true;
   };
 
+  # Disable hibernation (and corresponding UI elements in Plasma) since I don't
+  # use it and haven't set it up properly.
+  systemd.sleep.extraConfig = ''
+    AllowHibernation=no
+  '';
+
   # MARK: Users and permissions
   users.users.zabackary = {
     isNormalUser = true;
