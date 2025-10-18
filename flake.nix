@@ -18,6 +18,10 @@
     # LINE
     line-messenger.url = "path:./pkgs/line-messenger";
     line-messenger.inputs.nixpkgs.follows = "nixpkgs";
+
+    # Browser Previews for up-to-date Chrome versions without updating Nixpkgs
+    browser-previews.url = "github:nix-community/browser-previews";
+    browser-previews.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =

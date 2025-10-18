@@ -172,7 +172,6 @@
     git
     vim
     wget
-    google-chrome
     keepassxc
     bash
     imagemagickBig

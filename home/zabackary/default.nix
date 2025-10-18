@@ -27,6 +27,9 @@
   services.flatpak.uninstallUnmanaged = true;
 
   home.packages = with pkgs; [
+    # Browsers and browser utilities
+    inputs.browser-previews.packages.${pkgs.system}.google-chrome # stable
+    inputs.browser-previews.packages.${pkgs.system}.google-chrome-beta
     kdePackages.plasma-browser-integration
 
     # utils for x86_64
