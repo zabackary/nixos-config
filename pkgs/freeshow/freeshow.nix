@@ -5,12 +5,12 @@
 }:
 
 let
-  version = "1.4.9";
+  version = "1.5.0";
   pname = "freeshow";
 
   src = fetchurl {
     url = "https://github.com/ChurchApps/FreeShow/releases/download/v${version}/FreeShow-${version}-x86_64.AppImage";
-    hash = "sha256-b8RsIxV5RUxdDMbDjl3GudBQhHLLNWm7Vcr1IsbpynM=";
+    hash = "sha256-kGZzpJEDR4eCY2jA+E+geUP8bZVezwq/XULlWXKRKi4=";
   };
 
   appimageContents = appimageTools.extractType1 { inherit src; name = pname; };
