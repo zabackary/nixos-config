@@ -6,6 +6,9 @@
   ...
 }:
 {
+  # Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
+
   home = {
     username = lib.mkDefault "zabackary";
     homeDirectory = lib.mkDefault "/home/${config.home.username}";
