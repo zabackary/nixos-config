@@ -18,6 +18,8 @@
 
   programs.home-manager.enable = true;
 
+  programs.vscode.enable = true; # mostly for the cli
+
   nix = {
     package = pkgs.nix;
     settings.experimental-features = [
