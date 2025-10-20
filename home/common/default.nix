@@ -32,6 +32,7 @@
     pciutils # lspci
     usbutils # lsusb
     p7zip # 7z
+    wakeonlan # wakeonlan command for WoL packets
 
     # nix things
     nixfmt-rfc-style
