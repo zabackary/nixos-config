@@ -22,6 +22,10 @@
     # Browser Previews for up-to-date Chrome versions without updating Nixpkgs
     browser-previews.url = "github:nix-community/browser-previews";
     browser-previews.inputs.nixpkgs.follows = "nixpkgs";
+
+    # cargo-v5 tool for vexide projects
+    cargo-v5.url = "github:vexide/cargo-v5";
+    cargo-v5.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
