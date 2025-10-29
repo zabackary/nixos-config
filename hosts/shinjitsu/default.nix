@@ -148,6 +148,7 @@
     extraGroups = [
       "networkmanager"
       "wheel"
+      "dialout"
     ];
     packages = with pkgs; [
       kdePackages.kate
