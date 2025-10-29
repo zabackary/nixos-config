@@ -188,6 +188,7 @@
     fira-code-symbols
     nerd-fonts.fira-code
     montserrat
+    roboto
   ];
   fonts.enableDefaultPackages = true;
 
