@@ -56,7 +56,7 @@
     # Development
     corepack_24
     nodejs_24
-    inputs.cargo-v5.packages.${pkgs.system}.cargo-v5-full
+    # inputs.cargo-v5.packages.${pkgs.system}.cargo-v5-full
   ];
 
   # MARK: GUI applications
