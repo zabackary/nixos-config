@@ -36,13 +36,13 @@ in
   # Add a secondary loopback IP to map the hostnames to
   networking.interfaces.lo.ipv4.addresses = [
     {
-      address = "127.0.0.2";
+      address = cajVirtualIp;
       prefixLength = 8;
     }
   ];
   # hosts file entries
   networking.hosts = {
-    "127.0.0.2" = [
+    "${cajVirtualIp}" = [
       "www-dev.caj.ac.jp"
       "staff-dev.caj.ac.jp"
     ];
