@@ -4,11 +4,11 @@ let
   cajVirtualIp = "127.0.0.2";
   cajForwardedPorts = [
     [
-      44095
+      46297
       80
     ]
     [
-      37477
+      42205
       443
     ]
     [
