@@ -48,6 +48,7 @@
     gnome-disk-utility
     remmina
     anki-bin
+    inputs.rustdesk.packages.x86_64-linux.rustdesk
 
     # Spell checking
     hunspell

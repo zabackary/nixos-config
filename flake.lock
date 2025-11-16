@@ -187,8 +187,25 @@
         "home-manager": "home-manager",
         "line-messenger": "line-messenger",
         "nix-flatpak": "nix-flatpak",
-        "nixpkgs": "nixpkgs_2"
+        "nixpkgs": "nixpkgs_2",
+        "rustdesk": "rustdesk"
       }
+    },
+    "rustdesk": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "path": "./pkgs/rustdesk",
+        "type": "path"
+      },
+      "original": {
+        "path": "./pkgs/rustdesk",
+        "type": "path"
+      },
+      "parent": []
     },
     "systems": {
       "locked": {
