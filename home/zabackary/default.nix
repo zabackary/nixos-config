@@ -57,6 +57,7 @@
     # Development
     corepack_24
     nodejs_24
+    deno
     # inputs.cargo-v5.packages.${pkgs.system}.cargo-v5-full
   ];
 
