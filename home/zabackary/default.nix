@@ -70,8 +70,18 @@
     };
   };
 
-  programs.vscode = {
-    enable = true;
-    package = pkgs.vscode.fhs;
-  };
+  programs.vscode =
+    let
+      data = import ../../data/vscode.nix;
+    in
+    {
+      enable = true;
+      package = pkgs.vscode.fhs.overrideAttrs (old: {
+        src = builtins.fetchTarball {
+          url = "https://update.code.visualstudio.com/${data.version}/linux-x64/stable";
+          sha256 = data.sha256;
+        };
+        version = data.version;
+      });
+    };
 }
