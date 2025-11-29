@@ -41,6 +41,18 @@
     gimp3-with-plugins
     inkscape-with-extensions
     openshot-qt
+    (
+      let
+        data = import ../../data/vscode.nix;
+      in
+      vscode.overrideAttrs (oldAttrs: {
+        src = builtins.fetchTarball {
+          url = "https://update.code.visualstudio.com/${data.version}/linux-x64/stable";
+          sha256 = data.sha256;
+        };
+        version = data.version;
+      })
+    )
 
     # GUI system utilities
     alacritty
@@ -69,19 +81,4 @@
       resize_increments = true;
     };
   };
-
-  programs.vscode =
-    let
-      data = import ../../data/vscode.nix;
-    in
-    {
-      enable = true;
-      package = pkgs.vscode.fhs.overrideAttrs (old: {
-        src = builtins.fetchTarball {
-          url = "https://update.code.visualstudio.com/${data.version}/linux-x64/stable";
-          sha256 = data.sha256;
-        };
-        version = data.version;
-      });
-    };
 }
