@@ -45,13 +45,13 @@
       let
         data = import ../../data/vscode.nix;
       in
-      vscode.overrideAttrs (oldAttrs: {
+      (vscode.overrideAttrs (oldAttrs: {
         src = builtins.fetchTarball {
           url = "https://update.code.visualstudio.com/${data.version}/linux-x64/stable";
           sha256 = data.sha256;
         };
         version = data.version;
-      }).fhs
+      })).fhs
     )
 
     # GUI system utilities
