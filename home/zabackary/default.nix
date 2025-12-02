@@ -51,7 +51,7 @@
           sha256 = data.sha256;
         };
         version = data.version;
-      })
+      }).fhs
     )
 
     # GUI system utilities
