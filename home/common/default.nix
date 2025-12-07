@@ -119,13 +119,15 @@
 
   programs.git = {
     enable = true;
-    userName = "zabackary";
-    userEmail = "137591653+zabackary@users.noreply.github.com";
-    lfs.enable = true;
-    extraConfig = {
+    settings = {
+      user = {
+        name = "zabackary";
+        email = "137591653+zabackary@users.noreply.github.com";
+      };
       push.autoSetupRemote = true;
       init.defaultBranch = "main";
     };
+    lfs.enable = true;
   };
 
   programs.gh = {
