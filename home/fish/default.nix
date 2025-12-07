@@ -11,6 +11,9 @@
     ../common
   ];
 
+  # Allow unfree packages (since we aren't on NixOS where it's allowed globally)
+  nixpkgs.config.allowUnfree = true;
+
   home = {
     username = "fish"; # glub glub
     homeDirectory = "/Users/fish";
