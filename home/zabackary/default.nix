@@ -40,7 +40,7 @@
     # GUI editors
     gimp3-with-plugins
     inkscape-with-extensions
-    openshot-qt
+    # openshot-qt # openshot-qt depends on qtwebengine, which is currently marked as insecure. Therefore, it doesn't have CI builds and I can't build one myself.
     (
       let
         data = import ../../data/vscode.nix;
