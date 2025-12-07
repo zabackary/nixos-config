@@ -28,8 +28,8 @@
 
   home.packages = with pkgs; [
     # Browsers and browser utilities
-    inputs.browser-previews.packages.${pkgs.system}.google-chrome # stable
-    inputs.browser-previews.packages.${pkgs.system}.google-chrome-beta
+    inputs.browser-previews.packages.${pkgs.stdenv.hostPlatform.system}.google-chrome # stable
+    inputs.browser-previews.packages.${pkgs.stdenv.hostPlatform.system}.google-chrome-beta
     kdePackages.plasma-browser-integration
 
     # utils for x86_64
@@ -70,7 +70,7 @@
     corepack_24
     nodejs_24
     deno
-    # inputs.cargo-v5.packages.${pkgs.system}.cargo-v5-full
+    # inputs.cargo-v5.packages.${pkgs.stdenv.hostPlatform.system}.cargo-v5-full
   ];
 
   # MARK: GUI applications
