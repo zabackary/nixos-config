@@ -98,8 +98,8 @@ mkWindowsAppNoCC rec {
     name = "LINE Messenger";
 
     src = fetchurl {
-      url = "https://www.line.me/static/b83de682148ca1092750bd59456ca0d9/c0a13/28e883fa1eef1f2e2aca961e12498120.png";
-      sha256 = "sha256-0fJ4FDLg7dkIPqh0y5tqe/hw78fEJpWvRwe1scjyWyo=";
+      url = "https://www.line.me/static/img/apple-touch-icon-180x180.png";
+      sha256 = "sha256-wNP4rmFhEiC4Q8tGrRC08tJu9DmdVTylZEyvBSu44U8=";
     };
   };
 
