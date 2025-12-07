@@ -9,7 +9,7 @@
   home = {
     username = lib.mkDefault "zabackary";
     homeDirectory = lib.mkDefault "/home/${config.home.username}";
-    stateVersion = lib.mkDefault "22.05";
+    stateVersion = lib.mkDefault "22.05"; # not sure why I did this but it's too late now
   };
 
   home.packages = with pkgs; [
