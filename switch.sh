@@ -17,7 +17,7 @@ fi
 
 if [ -z "$(git status --porcelain)" ] || [[ $ALLOW_DIRTY -eq 1 ]]; then
   echo "Switching NixOS configuration..."
-  nixos-rebuild switch --flake .# --sudo
+  nixos-rebuild switch --flake .#
   if [[ $? -eq 0 ]]; then
    echo "NixOS configuration switched successfully. Remember to \`git push\` your changes."
   else
