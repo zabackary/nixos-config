@@ -162,6 +162,13 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  nixpkgs.config.permittedInsecurePackages = [
+    # QT WebEngine has critical security issues and is not maintained upstream.
+    # However, QT 5 webengine is still required by some of my applications. Oh
+    # well.
+    "qtwebengine-5.15.19"
+  ];
+
   # Enable the Flakes feature and the accompanying new nix command-line tool
   nix.settings.experimental-features = [
     "nix-command"
@@ -184,7 +191,7 @@
   fonts.packages = with pkgs; [
     noto-fonts
     noto-fonts-cjk-sans
-    noto-fonts-emoji
+    noto-fonts-color-emoji
     fira-code
     fira-code-symbols
     nerd-fonts.fira-code
