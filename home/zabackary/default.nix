@@ -50,7 +50,12 @@
           url = "https://update.code.visualstudio.com/${data.version}/linux-x64/stable";
           sha256 = data.sha256;
         };
-        version = data.version;
+        version = data.version;        
+        buildInputs = oldAttrs.buildInputs ++ (with pkgs; [
+          curl
+          webkitgtk_4_1
+          libsoup_3
+        ]);
       })).fhs
     )
 
