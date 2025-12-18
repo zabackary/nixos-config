@@ -13,6 +13,6 @@
     "org.gnome.Calendar"
     "org.kde.krdc"
     "com.github.vikdevelop.timer"
-    "org.gnome.gitlab.cheywood.Buffer"
+    "com.spotify.Client"
   ];
 }
