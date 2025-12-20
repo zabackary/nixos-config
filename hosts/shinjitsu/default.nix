@@ -21,6 +21,25 @@
     device = "nodev";
     efiSupport = true;
     configurationLimit = 10;
+    extraEntries = ''
+      menuentry "Restart" {
+        reboot
+      }
+      menuentry "Shut down" {
+        halt
+      }
+    '';
+    # Nice splash screen with Roboto font
+    font = "${pkgs.roboto-mono}/share/fonts/truetype/RobotoMono/RobotoMono-Regular.ttf";
+    splashImage = ../../assets/grub-splash.png;
+    gfxmodeEfi = "1920x1200,auto";
+    extraConfig = ''
+      set timeout_style=countdown
+      set timeout=10
+      set color_normal=white/black
+      set color_highlight=black/white
+      terminal_output gfxterm
+    '';
   };
   boot.loader.efi.canTouchEfiVariables = true;
 
@@ -194,6 +213,11 @@
     nerd-fonts.fira-code
     montserrat
     roboto
+    roboto-mono
+    roboto-flex
+    roboto-serif
+    roboto-slab
+    nerd-fonts.roboto-mono
   ];
   fonts.enableDefaultPackages = true;
 
