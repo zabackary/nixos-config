@@ -13,6 +13,5 @@
     "org.gnome.Calendar"
     "org.kde.krdc"
     "com.github.vikdevelop.timer"
-    "com.spotify.Client"
   ];
 }
