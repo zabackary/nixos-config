@@ -30,16 +30,9 @@
       }
     '';
     # Nice splash screen with Roboto font
-    font = "${pkgs.roboto-mono}/share/fonts/truetype/RobotoMono/RobotoMono-Regular.ttf";
-    splashImage = ../../assets/grub-splash.png;
+    splashImage = ../../assets/grub-background.png;
     gfxmodeEfi = "1920x1200,auto";
-    extraConfig = ''
-      set timeout_style=countdown
-      set timeout=10
-      set color_normal=white/black
-      set color_highlight=black/white
-      terminal_output gfxterm
-    '';
+    theme = ../../assets/grub-theme;
   };
   boot.loader.efi.canTouchEfiVariables = true;
 
