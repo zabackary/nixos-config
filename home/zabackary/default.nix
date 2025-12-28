@@ -78,6 +78,9 @@
     nodejs_24
     deno
     # inputs.cargo-v5.packages.${pkgs.stdenv.hostPlatform.system}.cargo-v5-full
+
+    # Games
+    prismlauncher
   ];
 
   # MARK: GUI applications
