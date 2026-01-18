@@ -62,7 +62,6 @@
     )
 
     # GUI system utilities
-    alacritty
     parted
     gnome-disk-utility
     remmina
@@ -84,11 +83,20 @@
   ];
 
   # MARK: GUI applications
-  programs.alacritty = {
+  programs.ghostty = {
     enable = true;
     settings = {
-      blur = true;
-      resize_increments = true;
+      window-theme = "ghostty";
+      window-decoration = "client";
+      font-size = 10;
+      link-previews = "true";
+      background-opacity = 0.8;
+      background-blur = true;
+      gtk-toolbar-style = "flat";
+      gtk-wide-tabs = true;
+      window-show-tab-bar = "always";
+      gtk-titlebar-style = "tabs";
+      theme = "TokyoNight Night";
     };
   };
 }
