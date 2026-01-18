@@ -11,7 +11,7 @@
     "org.gnome.Music"
     "org.gnome.baobab"
     "org.gnome.Calendar"
-    "org.kde.krdc"
-    "com.github.vikdevelop.timer"
+    "org.gnome.clocks"
+    "org.gnome.Solanum"
   ];
 }
