@@ -93,7 +93,7 @@
       background-opacity = 0.8;
       background-blur = true;
       gtk-toolbar-style = "flat";
-      gtk-wide-tabs = true;
+      gtk-wide-tabs = false;
       window-show-tab-bar = "always";
       gtk-titlebar-style = "tabs";
       theme = "TokyoNight Night";
