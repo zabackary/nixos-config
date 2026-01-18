@@ -10,7 +10,7 @@ nix flake update browser-previews
 # MARK: VSCode
 # Update VSCode by updating data/vscode.nix
 # Inspired by https://github.com/NixOS/nixpkgs/blob/85ac135c532ef5afe8c067f07c5b0e87873bdd62/pkgs/applications/editors/vscode/update-vscode.sh
-latestVersion=$(curl --fail --silent https://api.github.com/repos/Microsoft/vscode/releases/latest | jq --raw-output .tag_name)
+latestVersion=$(curl --fail --silent https://code.visualstudio.com/sha?build=stable | jq --raw-output .products.[0].name)
 currentVersion=$(nix eval --raw -f data/vscode.nix version)
 
 echo "latest  version: $latestVersion"
