@@ -19,6 +19,7 @@
       gtk-titlebar-style = "tabs";
       theme = "TokyoNight Night";
       macos-titlebar-style = "tabs";
+      shell-integration-features = "ssh-env";
     };
   };
 }
