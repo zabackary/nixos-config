@@ -9,6 +9,7 @@
 {
   imports = [
     ../common
+    ../common/gui.nix
   ];
 
   # Allow unfree packages (since we aren't on NixOS where it's allowed globally)
