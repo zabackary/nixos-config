@@ -20,6 +20,10 @@
     homeDirectory = "/Users/fish";
   };
 
+  home.packages = with pkgs; [
+    macmon
+  ];
+
   programs.home-manager.enable = true;
 
   programs.vscode.enable = true; # mostly for the cli
