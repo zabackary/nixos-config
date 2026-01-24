@@ -24,7 +24,12 @@
     macmon
   ];
 
-  programs.ghostty.package = null; # ghostty is installed externally on macOS
+  programs.ghostty = {
+    package = null; # ghostty is installed separately on macOS
+    settings = {
+      font-size = 14;
+    };
+  };
 
   programs.home-manager.enable = true;
 

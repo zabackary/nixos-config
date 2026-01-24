@@ -18,6 +18,7 @@
       window-show-tab-bar = "always";
       gtk-titlebar-style = "tabs";
       theme = "TokyoNight Night";
+      macos-titlebar-style = "tabs";
     };
   };
 }
