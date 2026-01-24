@@ -5,7 +5,7 @@
 }:
 
 let
-  data = import ../data/freeshow.nix;
+  data = import ../../data/freeshow.nix;
   version = data.version;
   pname = "freeshow";
 
