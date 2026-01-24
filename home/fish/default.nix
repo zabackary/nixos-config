@@ -24,6 +24,8 @@
     macmon
   ];
 
+  programs.ghostty.package = null; # ghostty is installed externally on macOS
+
   programs.home-manager.enable = true;
 
   programs.vscode.enable = true; # mostly for the cli
