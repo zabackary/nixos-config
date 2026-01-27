@@ -5,20 +5,16 @@
 }:
 
 let
-  version = "1.4.3";
+  data = import ../../data/rustdesk.nix;
+  version = data.version;
   pname = "rustdesk";
 
   src = fetchurl {
     url = "https://github.com/rustdesk/rustdesk/releases/download/${version}/rustdesk-${version}-x86_64.AppImage";
-    hash = "sha256-ggvpqVg2sfeFC31OgdG+N+kNZdYsAX7CPBLsJAt1iQM=";
-  };
-
-  appimageContents = appimageTools.extractType1 {
-    inherit src;
-    name = pname;
+    hash = data.sha256;
   };
 in
-appimageTools.wrapType2 rec {
+appimageTools.wrapType2 {
   inherit pname version src;
 
   meta = {

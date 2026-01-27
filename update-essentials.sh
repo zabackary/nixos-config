@@ -51,3 +51,22 @@ else
     data/freeshow.nix
   echo "  updated data/freeshow.nix"
 fi
+
+# MARK: RustDesk
+echo "Updating RustDesk..."
+# Update RustDesk by updating data/rustdesk.nix
+latestVersion=$(curl --fail --silent https://api.github.com/repos/rustdesk/rustdesk/releases/latest | jq --raw-output .name)
+currentVersion=$(nix eval --raw -f data/rustdesk.nix version)
+echo "  latest  version: $latestVersion"
+echo "  current version: $currentVersion"
+if [[ "$latestVersion" == "$currentVersion" ]]; then
+  echo "  package is up-to-date"
+else
+  echo "  updating package to $latestVersion"
+  latestSha256=$(nix hash convert --to sri --hash-algo sha256 $(nix-prefetch-url "https://github.com/rustdesk/rustdesk/releases/download/$latestVersion/rustdesk-$latestVersion-x86_64.AppImage"))
+  sed -i \
+    -e "s/  version = \".*\";/  version = \"$latestVersion\";/" \
+    -e "s|  sha256 = \".*\";|  sha256 = \"$latestSha256\";|" \
+    data/rustdesk.nix
+  echo "  updated data/rustdesk.nix"
+fi
