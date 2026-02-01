@@ -22,6 +22,7 @@
     which
     tree
     bat
+    micro # nicer editor than nano
     gnused
     gnutar
     gawk
