@@ -28,4 +28,9 @@ appimageTools.wrapType2 {
     platforms = [ "x86_64-linux" ];
     mainProgram = "freeshow";
   };
+
+  extraPkgs =
+    pkgs: with pkgs; [
+      libltc
+    ];
 }
