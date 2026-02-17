@@ -81,6 +81,7 @@
       cups-browsed
     ];
   };
+  services.ipp-usb.enable = true;
 
   # Bluetooth
   hardware.bluetooth = {
