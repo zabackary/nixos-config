@@ -11,6 +11,7 @@
     inputs.nix-flatpak.homeManagerModules.nix-flatpak
     # inputs.noctalia.homeModules.default
     ./flatpak.nix
+    ./systemd.nix
   ];
 
   home = {
