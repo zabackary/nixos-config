@@ -4,6 +4,8 @@
   inputs = {
     # NixOS official package source
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
+    # # ... and unstable
+    # nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     # Home manager
     home-manager.url = "github:nix-community/home-manager/release-25.11";
@@ -25,6 +27,12 @@
     # Browser Previews for up-to-date Chrome versions without updating Nixpkgs
     browser-previews.url = "github:nix-community/browser-previews";
     browser-previews.inputs.nixpkgs.follows = "nixpkgs";
+
+    # # Noctalia
+    # noctalia = {
+    #   url = "github:noctalia-dev/noctalia-shell";
+    #   inputs.nixpkgs.follows = "nixpkgs-unstable";
+    # };
 
     # # cargo-v5 tool for vexide projects
     # cargo-v5.url = "github:vexide/cargo-v5";
