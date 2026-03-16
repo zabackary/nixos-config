@@ -2,6 +2,7 @@
   config,
   pkgs,
   inputs,
+  lib,
   ...
 }:
 {
@@ -95,7 +96,8 @@
   };
 
   # MARK: Formatting, timezone, internationalisation
-  time.timeZone = "Asia/Tokyo";
+  time.timeZone = lib.mkDefault "Asia/Tokyo";
+  services.automatic-timezoned.enable = true;
   # I'm in Japan and I want my locale to be US English but with
   # Japanese conventions for things like dates and numbers.
   i18n.defaultLocale = "en_US.UTF-8";
