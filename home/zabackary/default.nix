@@ -72,6 +72,7 @@
     remmina
     anki-bin
     inputs.rustdesk.packages.x86_64-linux.rustdesk
+    keepassxc
 
     # Spell checking
     hunspell

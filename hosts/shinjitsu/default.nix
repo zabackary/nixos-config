@@ -195,7 +195,6 @@
     git
     vim
     wget
-    keepassxc
     bash
     imagemagickBig
     inputs.line-messenger.packages.x86_64-linux.line-messenger
