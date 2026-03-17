@@ -201,6 +201,7 @@
     inputs.line-messenger.packages.x86_64-linux.line-messenger
     inputs.freeshow.packages.x86_64-linux.freeshow
     borgbackup
+    linux-wifi-hotspot
 
     # Rounded corners for windows
     kde-rounded-corners
