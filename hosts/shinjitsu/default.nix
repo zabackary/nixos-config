@@ -242,6 +242,18 @@
   '';
   security.polkit.enable = true;
 
+  # MARK: Hardware
+
+  # turn off the mic LEDs because it doesn't work
+  systemd.services.configure-mic-led = rec {
+    wantedBy = [ "sound.target" ];
+    after = wantedBy;
+    serviceConfig.Type = "oneshot";
+    script = ''
+      echo off > /sys/class/sound/ctl-led/mic/mode
+    '';
+  };
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
