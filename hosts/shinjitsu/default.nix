@@ -55,7 +55,7 @@
     serviceConfig = {
       Type = "oneshot";
       User = "root";
-      ExecStart = "/run/current-system/sw/bin/modprobe -r ath11k_pci";
+      ExecStart = "/run/current-system/sw/bin/rmmod ath11k_pci";
     };
   };
   systemd.services.ath11k-resume-fix = {
