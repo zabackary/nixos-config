@@ -85,7 +85,14 @@
     # inputs.cargo-v5.packages.${pkgs.stdenv.hostPlatform.system}.cargo-v5-full
 
     # Games
-    prismlauncher
+    prismlauncher.override
+    {
+      jdks = [
+        temurin-bin-8
+        temurin-bin-21
+        temurin-bin-25
+      ];
+    }
   ];
 
   # # Noktalia and hyperland
