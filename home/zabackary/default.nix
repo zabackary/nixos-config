@@ -73,6 +73,7 @@
     anki-bin
     inputs.rustdesk.packages.x86_64-linux.rustdesk
     keepassxc
+    qalculate-qt
 
     # Spell checking
     hunspell
