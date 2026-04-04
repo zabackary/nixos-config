@@ -75,6 +75,13 @@
     openFirewall = true;
   };
 
+  # cert for Synology NAS
+  security.pki.certificates = [
+    (builtins.readFile ../../data/synology.pem)
+  ];
+
+  # Printing
+
   services.printing = {
     enable = true;
     drivers = with pkgs; [
