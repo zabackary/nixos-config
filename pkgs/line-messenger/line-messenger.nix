@@ -18,10 +18,8 @@ mkWindowsAppNoCC rec {
   version = "8.7.0.3303";
 
   src = builtins.fetchurl {
-    # obtained from https://store.rg-adguard.net/
-    # since there seems to be no provided canonical URL for each version, the sha will have to be updated appropriately.
-    url = "https://desktop.line-scdn.net/win/bin/real/installer/legacy/LineInst.exe";
-    sha256 = "sha256:60746c3d1a382481ccb45c3eb83669ec5fa552f018354b771f6d7782aac9b1de";
+    url = "https://web.archive.org/web/20251122191721if_/https://desktop.line-scdn.net/win/new/LineInst.exe";
+    sha256 = "sha256:02p9p4ajhqk3w4rgdyijnq67xppsfxx2wijz91gzr211k0c8w09m";
   };
 
   dontUnpack = true;
@@ -58,7 +56,7 @@ mkWindowsAppNoCC rec {
   # This code runs before winAppRun, but only for the first instance.
   # Therefore, if the app is already running, winAppRun will not execute.
   # Use this to do any setup prior to running the app.
-  winAppPreRun = '''';
+  winAppPreRun = "";
 
   winAppRun = ''
     $WINE start /unix "$WINEPREFIX/drive_c/users/$USER/AppData/Local/LINE/bin/LineLauncher.exe"
