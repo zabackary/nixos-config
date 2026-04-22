@@ -83,6 +83,7 @@
     corepack_24
     nodejs_24
     deno
+    zed-editor
     # inputs.cargo-v5.packages.${pkgs.stdenv.hostPlatform.system}.cargo-v5-full
 
     # Games
