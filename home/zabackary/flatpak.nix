@@ -13,5 +13,6 @@
     "org.gnome.Calendar"
     "org.gnome.clocks"
     "org.gnome.Solanum"
+    "org.gnome.SoundRecorder"
   ];
 }
