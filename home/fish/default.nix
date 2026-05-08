@@ -22,6 +22,7 @@
 
   home.packages = with pkgs; [
     macmon
+    nodejs_24
   ];
 
   programs.ghostty = {
