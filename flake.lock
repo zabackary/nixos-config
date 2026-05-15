@@ -9,11 +9,11 @@
         "systems": "systems"
       },
       "locked": {
-        "lastModified": 1778186474,
-        "narHash": "sha256-Es1kbAWgVJ2PgiDO22oQ+SmRkcvD4S2SKb+i5hCHa9U=",
+        "lastModified": 1778810304,
+        "narHash": "sha256-7jOrzRdkdbWMgYqz+RlqiECrJY+xc6aMn90NEKioC4A=",
         "owner": "nix-community",
         "repo": "browser-previews",
-        "rev": "3fe347659241aaf936c16a1e0ed8e731f44fb038",
+        "rev": "0509250c5e6b58d98d4d0907251a361ab8a6bd57",
         "type": "github"
       },
       "original": {
