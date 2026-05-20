@@ -107,6 +107,11 @@
     };
   };
 
+  # Tailscale
+  services.tailscale = {
+    enable = true;
+  };
+
   # MARK: Formatting, timezone, internationalisation
   time.timeZone = "Asia/Tokyo";
   # services.automatic-timezoned.enable = true;
