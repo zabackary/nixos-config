@@ -112,6 +112,7 @@
     enable = true;
   };
   services.resolved.enable = true; # Tailscale breaks default DNS resolution
+  networking.firewall.checkReversePath = "loose";
 
   # MARK: Formatting, timezone, internationalisation
   time.timeZone = "Asia/Tokyo";
