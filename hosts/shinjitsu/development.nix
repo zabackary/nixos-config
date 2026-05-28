@@ -26,6 +26,14 @@ in
       enable = true;
       setSocketVariable = true;
     };
+    daemon.settings = {
+      dns = [
+        # Manually configure DNS due to Tailscale overriding Docker's defaults
+        "100.100.100.100"
+        "1.1.1.1"
+        "8.8.8.8"
+      ];
+    };
   };
   # Needed to correctly forward packets to the docker containers
   boot.kernel.sysctl."net.ipv4.ip_forward" = 1;
