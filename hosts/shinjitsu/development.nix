@@ -25,13 +25,14 @@ in
       # We use docker rootless
       enable = true;
       setSocketVariable = true;
-    };
-    daemon.settings = {
-      dns = [
-        # Manually configure DNS due to Tailscale overriding Docker's defaults
-        "1.1.1.1"
-        "8.8.8.8"
-      ];
+      daemon.settings = {
+        dns = [
+          # Manually configure DNS due to Tailscale overriding Docker's defaults
+          "1.1.1.1"
+          "8.8.8.8"
+          "100.100.100.100"
+        ];
+      };
     };
   };
   # Needed to correctly forward packets to the docker containers
