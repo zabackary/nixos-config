@@ -178,9 +178,7 @@
 
   # Disable hibernation (and corresponding UI elements in Plasma) since I don't
   # use it and haven't set it up properly.
-  systemd.sleep.extraConfig = ''
-    AllowHibernation=no
-  '';
+  systemd.sleep.settings.Sleep.AllowHibernation = "no";
 
   # MARK: Users and permissions
   users.users.zabackary = {

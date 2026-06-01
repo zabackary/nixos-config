@@ -32,7 +32,7 @@
               copyDesktopIcons
               ;
 
-            wine = wineWowPackages.base;
+            wine = wineWow64Packages.base;
           };
         };
 

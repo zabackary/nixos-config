@@ -14,7 +14,6 @@
 
   home.packages = with pkgs; [
     starship
-    neofetch
     fastfetch
     ripgrep
     cowsay # why not
@@ -36,7 +35,7 @@
     wakeonlan # wakeonlan command for WoL packets
 
     # nix things
-    nixfmt-rfc-style
+    nixfmt
     nixd
   ];
 
