@@ -221,7 +221,6 @@
 
     # Rounded corners for windows
     kde-rounded-corners
-    kdePackages.plasma-thunderbolt
   ];
 
   # Fonts
@@ -271,9 +270,6 @@
       echo off > /sys/class/sound/ctl-led/mic/mode
     '';
   };
-
-  # Thunderbolt
-  services.hardware.bolt.enable = true;
 
   # Fingerprint
   services.fprintd.enable = true;
