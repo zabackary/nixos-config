@@ -45,6 +45,22 @@
     };
   };
 
+  systemd.user.services.tailscale-systray = {
+    Unit = {
+      Description = "Tailscale systray application";
+      After = [ "graphical-session.target" ];
+      PartOf = [ "graphical-session.target" ];
+      WantedBy = [ "graphical-session.target" ];
+      OnFailure = "notify-failure@%n.service"; # Run failure notification service on failure
+    };
+    Service = {
+      Type = "simple";
+      ExecStart = "${pkgs.tailscale}/bin/tailscale systray";
+      Restart = "on-failure";
+      RestartSec = "30s"; # Wait 30 seconds before restarting on failure to avoid rapid restart loops
+    };
+  };
+
   # Failure notification handler service
   systemd.user.services."notify-failure@" = {
     Unit = {
