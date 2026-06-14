@@ -9,51 +9,16 @@
         "systems": "systems"
       },
       "locked": {
-        "lastModified": 1779663917,
-        "narHash": "sha256-ovEcyZm/u7yW3B7+8K6Jj7VqrVfWqqVD459jQywyz3I=",
+        "lastModified": 1781306258,
+        "narHash": "sha256-DzOYTWnYC1JPoi1Z1HZ7J4/TaCDad5duGxxIkNHNzwg=",
         "owner": "nix-community",
         "repo": "browser-previews",
-        "rev": "be8fd1eb76ab10d2889b05755c8a36ca55220394",
+        "rev": "2b07820cb29c872e62277a3469cf49e5b51fca45",
         "type": "github"
       },
       "original": {
         "owner": "nix-community",
         "repo": "browser-previews",
-        "type": "github"
-      }
-    },
-    "erosanix": {
-      "inputs": {
-        "flake-compat": "flake-compat",
-        "nixpkgs": "nixpkgs"
-      },
-      "locked": {
-        "lastModified": 1780230659,
-        "narHash": "sha256-9iVYeDEe3gDGHone3BxgAO2VppnUC+VELtifVOYLtl4=",
-        "owner": "emmanuelrosa",
-        "repo": "erosanix",
-        "rev": "8a0ac7e5eef4a6670e2389a1158dd06eafb80e30",
-        "type": "github"
-      },
-      "original": {
-        "owner": "emmanuelrosa",
-        "repo": "erosanix",
-        "type": "github"
-      }
-    },
-    "flake-compat": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1777728799,
-        "narHash": "sha256-z7jjYQqhkFKab92VQ3duB7QVO7f7Y62qTFrJYXO/lyo=",
-        "owner": "edolstra",
-        "repo": "flake-compat",
-        "rev": "4b2287113c2f9a2331c04899b2e2e5ab92dea9c5",
-        "type": "github"
-      },
-      "original": {
-        "owner": "edolstra",
-        "repo": "flake-compat",
         "type": "github"
       }
     },
@@ -101,11 +66,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1779726825,
-        "narHash": "sha256-RUkMrREjKDQrA+dA9+xZviGAxM5W1aVdyOr/bSYpHrE=",
+        "lastModified": 1781319724,
+        "narHash": "sha256-ZGuxexEMo4Xv28KJ0dX/m/PHN4oZIOnxHZpNTyrvx4M=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "b179bde238977f7d4454fc770b1a727eaf55111c",
+        "rev": "8355f0a16b2dbb06a97959a918af5b239bbe05ae",
         "type": "github"
       },
       "original": {
@@ -114,23 +79,6 @@
         "repo": "home-manager",
         "type": "github"
       }
-    },
-    "line-messenger": {
-      "inputs": {
-        "erosanix": "erosanix",
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "path": "./pkgs/line-messenger",
-        "type": "path"
-      },
-      "original": {
-        "path": "./pkgs/line-messenger",
-        "type": "path"
-      },
-      "parent": []
     },
     "nix-flatpak": {
       "locked": {
@@ -150,27 +98,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1780218263,
-        "narHash": "sha256-T/f0pPDrH3Qc1VXyQXbK7yfHWRn90l3xwplc/nsxin4=",
+        "lastModified": 1781216227,
+        "narHash": "sha256-9mUW6gNwoN2SWc/l0fW4svPNOulXLl8ijqKyeSOGgJE=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "7fc393d1b46fa000d48ff14e8b6a3c9985f03af0",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "master",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs_2": {
-      "locked": {
-        "lastModified": 1780203844,
-        "narHash": "sha256-K5sT4jTpGs15ADhviMKNBH38REpPf5Q6mM1+N6cArVE=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "b51242d7d43689db2f3be91bd05d5b24fbb469c4",
+        "rev": "a0374025a863d007d98e3297f6aa46cc3141c2f0",
         "type": "github"
       },
       "original": {
@@ -185,27 +117,9 @@
         "browser-previews": "browser-previews",
         "freeshow": "freeshow",
         "home-manager": "home-manager",
-        "line-messenger": "line-messenger",
         "nix-flatpak": "nix-flatpak",
-        "nixpkgs": "nixpkgs_2",
-        "rustdesk": "rustdesk"
+        "nixpkgs": "nixpkgs"
       }
-    },
-    "rustdesk": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "path": "./pkgs/rustdesk",
-        "type": "path"
-      },
-      "original": {
-        "path": "./pkgs/rustdesk",
-        "type": "path"
-      },
-      "parent": []
     },
     "systems": {
       "locked": {

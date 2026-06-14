@@ -214,7 +214,6 @@
     wget
     bash
     imagemagickBig
-    inputs.line-messenger.packages.x86_64-linux.line-messenger
     inputs.freeshow.packages.x86_64-linux.freeshow
     borgbackup
     linux-wifi-hotspot
