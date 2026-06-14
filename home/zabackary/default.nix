@@ -71,7 +71,7 @@
     gnome-disk-utility
     remmina
     anki-bin
-    inputs.rustdesk.packages.x86_64-linux.rustdesk
+    rustdesk-flutter
     keepassxc
     qalculate-qt
     rquickshare
