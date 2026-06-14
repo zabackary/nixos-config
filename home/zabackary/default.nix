@@ -63,6 +63,13 @@
             webkitgtk_4_1
             libsoup_3
           ]);
+        # VSCode moved the binary location around 1.122.0 and nixpkgs-26.05
+        # doesn't have nixpkgs#525492 backported yet. I've hardcoded linux-x64 here
+        # FIXME: Remove this when the backport is in place
+        postPatch =
+          lib.replaceStrings [ "@vscode/ripgrep/bin/rg" ] [ "@vscode/ripgrep-universal/bin/linux-x64/rg" ]
+            oldAttrs.postPatch;
+
       })).fhs
     )
 
