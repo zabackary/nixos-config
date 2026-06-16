@@ -188,16 +188,12 @@
       "networkmanager"
       "wheel"
       "dialout"
-      "adbusers"
     ];
     packages = with pkgs; [
       kdePackages.kate
       #  thunderbird
     ];
   };
-
-  # ADB (Android Debug Bridge)
-  programs.adb.enable = true;
 
   # Install firefox.
   programs.firefox.enable = true;

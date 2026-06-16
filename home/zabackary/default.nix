@@ -92,6 +92,7 @@
     nodejs_24
     deno
     zed-editor
+    android-tools
     # inputs.cargo-v5.packages.${pkgs.stdenv.hostPlatform.system}.cargo-v5-full
 
     # Games
