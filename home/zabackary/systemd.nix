@@ -46,11 +46,11 @@
   };
 
   systemd.user.services.tailscale-systray = {
+    Install.WantedBy = [ "graphical-session.target" ];
     Unit = {
       Description = "Tailscale systray application";
       After = [ "graphical-session.target" ];
       PartOf = [ "graphical-session.target" ];
-      WantedBy = [ "graphical-session.target" ];
       OnFailure = "notify-failure@%n.service"; # Run failure notification service on failure
     };
     Service = {
