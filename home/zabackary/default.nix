@@ -97,6 +97,9 @@
 
     # Games
     (prismlauncher.override {
+      additionalLibs = [
+        glfw
+      ];
       jdks = [
         temurin-bin-8
         temurin-bin-21
