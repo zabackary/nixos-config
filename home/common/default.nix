@@ -37,6 +37,7 @@
     # nix things
     nixfmt
     nixd
+    nil
   ];
 
   # MARK: Shell configuration
@@ -44,7 +45,7 @@
   programs.bash = {
     enable = true;
     enableCompletion = true;
-    bashrcExtra = '''';
+    bashrcExtra = "";
 
     shellAliases = {
       pn = "pnpm";
