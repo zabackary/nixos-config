@@ -72,6 +72,11 @@
 
       })).fhs
     )
+    (zed-editor.fhsWithPackages (
+      pkgs: with pkgs; [
+        nodejs_24
+      ]
+    ))
 
     # GUI system utilities
     parted
@@ -91,7 +96,6 @@
     corepack_24
     nodejs_24
     deno
-    zed-editor
     android-tools
     # inputs.cargo-v5.packages.${pkgs.stdenv.hostPlatform.system}.cargo-v5-full
 
