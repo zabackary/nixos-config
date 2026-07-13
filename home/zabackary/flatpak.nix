@@ -14,5 +14,6 @@
     "org.gnome.clocks"
     "org.gnome.Solanum"
     "org.gnome.SoundRecorder"
+    "org.gnome.Boxes"
   ];
 }
