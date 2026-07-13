@@ -75,4 +75,21 @@
       Environment = "FAILED_UNIT=%i";
     };
   };
+
+  # Music!
+  services.spotifyd = {
+    enable = true;
+    settings = {
+      global = {
+        username = "31ds2jm75bl7v2wenugicy5rjove";
+        password_cmd = "kwallet-query -r \"31ds2jm75bl7v2wenugicy5rjove\" -f \"spotifyd\" kdewallet";
+        device_name = "shinjitsu daemon";
+        device_type = "computer";
+        bitrate = 320;
+        initial_volume = 70;
+        volume_normalisation = true;
+        backend = "pulseaudio";
+      };
+    };
+  };
 }
