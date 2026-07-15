@@ -96,11 +96,16 @@
     Unit = {
       Description = "Restart spotifyd after resume";
       After = [ "suspend.target" ];
-      WantedBy = [ "suspend.target" ];
     };
     Service = {
       Type = "oneshot";
       ExecStart = "${pkgs.systemd}/bin/systemctl --user restart spotifyd.service";
+    };
+    Install = {
+      WantedBy = [
+        "suspend.target"
+        "spotifyd.service"
+      ];
     };
   };
 }
