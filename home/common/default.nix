@@ -34,6 +34,9 @@
     p7zip # 7z
     wakeonlan # wakeonlan command for WoL packets
 
+    # services, etc.
+    borgbackup
+
     # nix things
     nixfmt
     nixd

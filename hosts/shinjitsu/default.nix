@@ -220,7 +220,6 @@
     bash
     imagemagickBig
     inputs.freeshow.packages.${stdenv.hostPlatform.system}.freeshow
-    borgbackup
     linux-wifi-hotspot
 
     # Rounded corners for windows
