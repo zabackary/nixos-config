@@ -61,21 +61,6 @@
     };
   };
 
-  # Failure notification handler service
-  systemd.user.services."notify-failure@" = {
-    Unit = {
-      Description = "Notify user of a failed systemd unit";
-    };
-    Service = {
-      Type = "oneshot";
-      ExecStart = pkgs.writeShellScript "notify-failure.sh" ''
-        set -eou pipefail
-        ${pkgs.libnotify}/bin/notify-send --urgency=critical "user systemd service failure" "Job for $FAILED_UNIT failed. See 'journalctl --user -xeu $FAILED_UNIT' for details." --app-name=notify-failure.service --icon=dialog-error
-      '';
-      Environment = "FAILED_UNIT=%i";
-    };
-  };
-
   # Music!
   services.spotifyd = {
     enable = true;
@@ -96,6 +81,7 @@
     Unit = {
       Description = "Restart spotifyd after resume";
       After = [ "suspend.target" ];
+      OnFailure = "notify-failure@%n.service"; # Run failure notification service on failure
     };
     Service = {
       Type = "oneshot";
@@ -106,6 +92,21 @@
         "suspend.target"
         "spotifyd.service"
       ];
+    };
+  };
+
+  # Failure notification handler service
+  systemd.user.services."notify-failure@" = {
+    Unit = {
+      Description = "Notify user of a failed systemd unit";
+    };
+    Service = {
+      Type = "oneshot";
+      ExecStart = pkgs.writeShellScript "notify-failure.sh" ''
+        set -eou pipefail
+        ${pkgs.libnotify}/bin/notify-send --urgency=critical "user systemd service failure" "Job for $FAILED_UNIT failed. See 'journalctl --user -xeu $FAILED_UNIT' for details." --app-name=notify-failure.service --icon=dialog-error
+      '';
+      Environment = "FAILED_UNIT=%i";
     };
   };
 }
