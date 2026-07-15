@@ -22,11 +22,8 @@
     browser-previews.url = "github:nix-community/browser-previews";
     browser-previews.inputs.nixpkgs.follows = "nixpkgs";
 
-    # # Noctalia
-    # noctalia = {
-    #   url = "github:noctalia-dev/noctalia-shell";
-    #   inputs.nixpkgs.follows = "nixpkgs-unstable";
-    # };
+    kwin-effects-better-blur-dx.url = "github:xarblu/kwin-effects-better-blur-dx";
+    kwin-effects-better-blur-dx.inputs.nixpkgs.follows = "nixpkgs";
 
     # # cargo-v5 tool for vexide projects
     # cargo-v5.url = "github:vexide/cargo-v5";

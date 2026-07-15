@@ -219,12 +219,13 @@
     wget
     bash
     imagemagickBig
-    inputs.freeshow.packages.x86_64-linux.freeshow
+    inputs.freeshow.packages.${stdenv.hostPlatform.system}.freeshow
     borgbackup
     linux-wifi-hotspot
 
     # Rounded corners for windows
     kde-rounded-corners
+    inputs.kwin-effects-better-blur-dx.packages.${stdenv.hostPlatform.system}.default
   ];
 
   # Fonts
