@@ -110,9 +110,30 @@
         temurin-bin-25
       ];
     })
-
-    # A/V
-    obs-studio
-    obs-studio-plugins.distroav
   ];
+
+  programs.obs-studio = {
+    enable = true;
+
+    plugins = with pkgs.obs-studio-plugins; [
+      wlrobs
+      obs-backgroundremoval
+      obs-pipewire-audio-capture
+      obs-vaapi # optional AMD hardware acceleration
+      obs-gstreamer
+      obs-vkcapture
+      (distroav.override {
+        ndi-6 = (
+          pkgs.ndi-6.overrideAttrs (oldAttrs: {
+            # Upstream pushed 6.3.2 which is not in nixpkgs yet.
+            version = "6.3.2";
+            src = builtins.fetchurl {
+              url = "https://downloads.ndi.tv/SDK/NDI_SDK_Linux/${oldAttrs.installerName}.tar.gz";
+              sha256 = "sha256-8DFPJFRG3vxIi2POtGiazxqWWu79ray3BXG7IWqMwYM=";
+            };
+          })
+        );
+      })
+    ];
+  };
 }
