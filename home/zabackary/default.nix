@@ -110,5 +110,9 @@
         temurin-bin-25
       ];
     })
+
+    # A/V
+    obs-studio
+    obs-studio-plugins.distroav
   ];
 }
