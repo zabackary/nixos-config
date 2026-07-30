@@ -25,6 +25,10 @@
     kwin-effects-better-blur-dx.url = "github:xarblu/kwin-effects-better-blur-dx";
     kwin-effects-better-blur-dx.inputs.nixpkgs.follows = "nixpkgs";
 
+    # Claude Desktop
+    claude-desktop.url = "github:aaddrick/claude-desktop-debian";
+    claude-desktop.inputs.nixpkgs.follows = "nixpkgs";
+
     # # cargo-v5 tool for vexide projects
     # cargo-v5.url = "github:vexide/cargo-v5";
     # cargo-v5.inputs.nixpkgs.follows = "nixpkgs";

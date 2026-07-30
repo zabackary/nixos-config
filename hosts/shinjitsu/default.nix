@@ -13,6 +13,10 @@
     ./development.nix
   ];
 
+  nixpkgs.overlays = [
+    inputs.claude-desktop.overlays.default
+  ];
+
   # MARK: Bootloader
   # Bootloader for this machine, which uses grub with an OS prober because it is
   # a triple-boot Windows 11 Pro / Linux Mint / NixOS setup.
@@ -225,6 +229,9 @@
     # Rounded corners for windows
     kde-rounded-corners
     inputs.kwin-effects-better-blur-dx.packages.${stdenv.hostPlatform.system}.default
+
+    # AI slop
+    claude-desktop
   ];
 
   # Fonts
