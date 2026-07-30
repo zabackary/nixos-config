@@ -41,6 +41,9 @@
     nixfmt
     nixd
     nil
+
+    # AI slop
+    claude-code
   ];
 
   # MARK: Shell configuration
