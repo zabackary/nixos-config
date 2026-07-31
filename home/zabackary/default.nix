@@ -37,6 +37,9 @@
     inputs.browser-previews.packages.${pkgs.stdenv.hostPlatform.system}.google-chrome-beta
     kdePackages.plasma-browser-integration
 
+    # CLI utilities
+    libnotify
+
     # utils for x86_64
     sysstat
     lm_sensors # for `sensors` command
