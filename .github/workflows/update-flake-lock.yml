@@ -3,8 +3,8 @@ name: "Update flake inputs"
 on:
   workflow_dispatch:
   schedule:
-    # Every Sunday at 00:00 UTC
-    - cron: '0 0 * * 0'
+    # Every Saturday at 08:00 JST (Friday 23:00 UTC)
+    - cron: '0 23 * * 5'
 
 jobs:
   update-flake-lock:
