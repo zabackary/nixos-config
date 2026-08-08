@@ -19,9 +19,63 @@ jobs:
 
       - uses: DeterminateSystems/determinate-nix-action@v3
 
+      # Build the system closure before the update so it can be diffed
+      # against the post-update closure below. Only the shinjitsu host is
+      # built here since it's the only configuration targeting the
+      # runner's platform (x86_64-linux).
+      - name: Build system closure before update
+        id: before
+        continue-on-error: true
+        run: |
+          echo "path=$(nix build .#nixosConfigurations.shinjitsu.config.system.build.toplevel --no-link --print-out-paths)" >> "$GITHUB_OUTPUT"
+
       - uses: DeterminateSystems/update-flake-lock@v28
+        id: update
         with:
           pr-title: "Update flake inputs"
           pr-labels: |
             dependencies
             automated
+          branch: "update-flake-lock-action"
+
+      - name: Check out updated lock file
+        if: steps.update.outputs.pull-request-operation == 'created' || steps.update.outputs.pull-request-operation == 'updated'
+        run: |
+          git fetch origin update-flake-lock-action
+          git checkout update-flake-lock-action
+
+      - name: Build system closure after update
+        id: after
+        if: steps.update.outputs.pull-request-operation == 'created' || steps.update.outputs.pull-request-operation == 'updated'
+        continue-on-error: true
+        run: |
+          echo "path=$(nix build .#nixosConfigurations.shinjitsu.config.system.build.toplevel --no-link --print-out-paths)" >> "$GITHUB_OUTPUT"
+
+      - name: Diff package versions
+        if: |
+          (steps.update.outputs.pull-request-operation == 'created' || steps.update.outputs.pull-request-operation == 'updated') &&
+          steps.before.outcome == 'success' && steps.after.outcome == 'success'
+        run: |
+          nix run nixpkgs#nvd -- diff "${{ steps.before.outputs.path }}" "${{ steps.after.outputs.path }}" > nvd-diff.txt || true
+
+      - name: Append package version diff to pull request description
+        if: steps.update.outputs.pull-request-operation == 'created' || steps.update.outputs.pull-request-operation == 'updated'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ steps.update.outputs.pull-request-number }}
+        run: |
+          gh pr view "$PR_NUMBER" --json body -q .body > current-body.md
+          {
+            cat current-body.md
+            echo
+            echo "## Package version changes (shinjitsu)"
+            echo
+            if [ -s nvd-diff.txt ]; then
+              echo '```'
+              cat nvd-diff.txt
+              echo '```'
+            else
+              echo "_Unable to compute the package version diff for this update._"
+            fi
+          } > new-body.md
+          gh pr edit "$PR_NUMBER" --body-file new-body.md
