@@ -130,6 +130,7 @@
       };
       push.autoSetupRemote = true;
       init.defaultBranch = "main";
+      safe.directory = [ "/home/zabackary/projects/CAJ_websites" ];
     };
     lfs.enable = true;
   };
