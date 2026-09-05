@@ -60,8 +60,8 @@ in
   networking.firewall.extraCommands = pkgs.lib.strings.concatMapStrings (
     portPair:
     let
-      from = builtins.toString (builtins.elemAt portPair 0);
-      to = builtins.toString (builtins.elemAt portPair 1);
+      from = toString (builtins.elemAt portPair 0);
+      to = toString (builtins.elemAt portPair 1);
     in
     ''
       iptables -t nat -A PREROUTING -p tcp -d ${cajVirtualIp} --dport ${to} -j DNAT --to-destination 127.0.0.1:${from}
