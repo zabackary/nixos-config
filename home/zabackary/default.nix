@@ -85,11 +85,10 @@
     parted
     gnome-disk-utility
     remmina
-    anki-bin
     rustdesk-flutter
-    keepassxc
-    qalculate-qt
     rquickshare
+
+    keepassxc
 
     # Spell checking
     hunspell
@@ -113,6 +112,11 @@
         temurin-bin-25
       ];
     })
+
+    # Study
+    anki-bin
+    qalculate-qt
+    zotero
   ];
 
   programs.obs-studio = {
