@@ -38,8 +38,21 @@
       Type = "oneshot";
       ExecStart = pkgs.writeShellScript "freeshow-media-sync.sh" ''
         set -eou pipefail
-        ${pkgs.rclone}/bin/rclone bisync --config "$HOME/.config/rclone/rclone.conf" --resilient --progress --stats 1s --log-level INFO ~/Documents/FreeShow/Media "school_gdrive:SLC/Chapel Slides/Freeshow Media Sync CAJ"
-        ${pkgs.libnotify}/bin/notify-send 'Synced media for FreeShow' --icon=dialog-information --urgency=low --app-name=freeshow-media-sync.service
+
+        # bisync has no --error-on-no-transfer equivalent and always exits 0 on a
+        # clean run, so we sniff its log output for the "no changes" line instead.
+        status=0
+        output="$(${pkgs.rclone}/bin/rclone bisync --config "$HOME/.config/rclone/rclone.conf" --resilient --progress --stats 1s --log-level INFO ~/Documents/FreeShow/Media "school_gdrive:SLC/Chapel Slides/Freeshow Media Sync CAJ" 2>&1)" || status=$?
+        printf '%s\n' "$output"
+        if [ "$status" -ne 0 ]; then
+          exit "$status"
+        fi
+
+        if printf '%s\n' "$output" | ${pkgs.gnugrep}/bin/grep -qi 'No changes found'; then
+          echo "freeshow-media-sync: rclone transferred no new files; skipping desktop notification"
+        else
+          ${pkgs.libnotify}/bin/notify-send 'Synced new media for FreeShow' --icon=dialog-information --urgency=low --app-name=freeshow-media-sync.service
+        fi
       '';
     };
   };
