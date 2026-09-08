@@ -41,7 +41,6 @@
         ${pkgs.rclone}/bin/rclone bisync --config "$HOME/.config/rclone/rclone.conf" --resilient --progress --stats 1s --log-level INFO ~/Documents/FreeShow/Media "school_gdrive:SLC/Chapel Slides/Freeshow Media Sync CAJ"
         ${pkgs.libnotify}/bin/notify-send 'Synced media for FreeShow' --icon=dialog-information --urgency=low --app-name=freeshow-media-sync.service
       '';
-      RemainAfterExit = true; # Prevents the service from automatically starting on rebuild. See https://discourse.nixos.org/t/how-to-prevent-custom-systemd-service-from-restarting-on-nixos-rebuild-switch/43431
     };
   };
 
