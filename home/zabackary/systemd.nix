@@ -39,6 +39,13 @@
       ExecStart = pkgs.writeShellScript "freeshow-media-sync.sh" ''
         set -eou pipefail
 
+        # Bail out quietly if we're offline, otherwise rclone spews a pile of
+        # connection errors and trips the OnFailure notification.
+        if ! ${pkgs.curl}/bin/curl --silent --show-error --fail --max-time 15 --output /dev/null https://clients3.google.com/generate_204; then
+          echo "freeshow-media-sync: no internet connectivity; skipping sync"
+          exit 0
+        fi
+
         # bisync has no --error-on-no-transfer equivalent and always exits 0 on a
         # clean run, so we sniff its log output for the "no changes" line instead.
         status=0
