@@ -80,21 +80,21 @@
     };
   };
 
-  systemd.user.services.tailscale-systray = {
-    Install.WantedBy = [ "graphical-session.target" ];
-    Unit = {
-      Description = "Tailscale systray application";
-      After = [ "graphical-session.target" ];
-      PartOf = [ "graphical-session.target" ];
-      OnFailure = "notify-failure@%n.service"; # Run failure notification service on failure
-    };
-    Service = {
-      Type = "simple";
-      ExecStart = "${pkgs.tailscale}/bin/tailscale systray";
-      Restart = "on-failure";
-      RestartSec = "30s"; # Wait 30 seconds before restarting on failure to avoid rapid restart loops
-    };
-  };
+  # systemd.user.services.tailscale-systray = {
+  #   Install.WantedBy = [ "graphical-session.target" ];
+  #   Unit = {
+  #     Description = "Tailscale systray application";
+  #     After = [ "graphical-session.target" ];
+  #     PartOf = [ "graphical-session.target" ];
+  #     OnFailure = "notify-failure@%n.service"; # Run failure notification service on failure
+  #   };
+  #   Service = {
+  #     Type = "simple";
+  #     ExecStart = "${pkgs.tailscale}/bin/tailscale systray";
+  #     Restart = "on-failure";
+  #     RestartSec = "30s"; # Wait 30 seconds before restarting on failure to avoid rapid restart loops
+  #   };
+  # };
 
   # Music!
   services.spotifyd = {
