@@ -96,39 +96,39 @@
   #   };
   # };
 
-  # Music!
-  services.spotifyd = {
-    enable = true;
-    settings = {
-      global = {
-        username = "31ds2jm75bl7v2wenugicy5rjove";
-        password_cmd = "kwallet-query -r \"31ds2jm75bl7v2wenugicy5rjove\" -f \"spotifyd\" kdewallet";
-        device_name = "shinjitsu daemon";
-        device_type = "computer";
-        bitrate = 320;
-        initial_volume = 70;
-        volume_normalisation = true;
-        backend = "pulseaudio";
-      };
-    };
-  };
-  systemd.user.services.spotifyd-restart = {
-    Unit = {
-      Description = "Restart spotifyd after resume";
-      After = [ "suspend.target" ];
-      OnFailure = "notify-failure@%n.service"; # Run failure notification service on failure
-    };
-    Service = {
-      Type = "oneshot";
-      ExecStart = "${pkgs.systemd}/bin/systemctl --user restart spotifyd.service";
-    };
-    Install = {
-      WantedBy = [
-        "suspend.target"
-        "spotifyd.service"
-      ];
-    };
-  };
+  # # Music!
+  # services.spotifyd = {
+  #   enable = true;
+  #   settings = {
+  #     global = {
+  #       username = "31ds2jm75bl7v2wenugicy5rjove";
+  #       password_cmd = "kwallet-query -r \"31ds2jm75bl7v2wenugicy5rjove\" -f \"spotifyd\" kdewallet";
+  #       device_name = "shinjitsu daemon";
+  #       device_type = "computer";
+  #       bitrate = 320;
+  #       initial_volume = 70;
+  #       volume_normalisation = true;
+  #       backend = "pulseaudio";
+  #     };
+  #   };
+  # };
+  # systemd.user.services.spotifyd-restart = {
+  #   Unit = {
+  #     Description = "Restart spotifyd after resume";
+  #     After = [ "suspend.target" ];
+  #     OnFailure = "notify-failure@%n.service"; # Run failure notification service on failure
+  #   };
+  #   Service = {
+  #     Type = "oneshot";
+  #     ExecStart = "${pkgs.systemd}/bin/systemctl --user restart spotifyd.service";
+  #   };
+  #   Install = {
+  #     WantedBy = [
+  #       "suspend.target"
+  #       "spotifyd.service"
+  #     ];
+  #   };
+  # };
 
   # Failure notification handler service
   systemd.user.services."notify-failure@" = {

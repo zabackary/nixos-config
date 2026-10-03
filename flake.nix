@@ -3,16 +3,14 @@
 
   inputs = {
     # NixOS official package source
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
-    # # ... and unstable
-    # nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     # Home manager
-    home-manager.url = "github:nix-community/home-manager/release-26.05";
+    home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     # Flatpaks
-    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.6.0";
+    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
 
     # FreeShow
     freeshow.url = "path:./pkgs/freeshow";
@@ -28,10 +26,6 @@
     # Claude Desktop
     claude-desktop.url = "github:aaddrick/claude-desktop-debian";
     claude-desktop.inputs.nixpkgs.follows = "nixpkgs";
-
-    # # cargo-v5 tool for vexide projects
-    # cargo-v5.url = "github:vexide/cargo-v5";
-    # cargo-v5.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
