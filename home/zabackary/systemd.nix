@@ -58,7 +58,23 @@
         if printf '%s\n' "$output" | ${pkgs.gnugrep}/bin/grep -qi 'No changes found'; then
           echo "freeshow-media-sync: rclone transferred no new files; skipping desktop notification"
         else
-          ${pkgs.libnotify}/bin/notify-send 'Synced new media for FreeShow' --icon=dialog-information --urgency=low --app-name=freeshow-media-sync.service
+          # Pull the per-file operations out of rclone's INFO log lines, e.g.
+          # "2026/01/01 12:00:00 INFO  : foo.png: Copied (new)", and turn them
+          # into "+ foo.png" (new), "~ foo.png" (updated) or "- foo.png" (deleted).
+          changes="$(printf '%s\n' "$output" \
+            | ${pkgs.coreutils}/bin/tr -d '\r' \
+            | ${pkgs.gnused}/bin/sed -nE \
+                -e 's/.*INFO  : (.+): Copied \(new\)$/+ \1/p' \
+                -e 's/.*INFO  : (.+): Copied \(replaced existing\)$/~ \1/p' \
+                -e 's/.*INFO  : (.+): Deleted$/- \1/p' \
+            | ${pkgs.coreutils}/bin/sort -u)"
+          count="$(printf '%s' "$changes" | ${pkgs.gnugrep}/bin/grep -c . || true)"
+          max_lines=10
+          body="$(printf '%s\n' "$changes" | ${pkgs.coreutils}/bin/head -n "$max_lines")"
+          if [ "$count" -gt "$max_lines" ]; then
+            body="$(printf '%s\n…and %d more' "$body" "$((count - max_lines))")"
+          fi
+          ${pkgs.libnotify}/bin/notify-send 'Synced new media for FreeShow' "$body" --icon=dialog-information --urgency=low --app-name=freeshow-media-sync.service
         fi
       '';
     };
