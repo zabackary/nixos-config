@@ -39,6 +39,7 @@
 
     # CLI utilities
     libnotify
+    wl-clipboard
 
     # utils for x86_64
     sysstat
