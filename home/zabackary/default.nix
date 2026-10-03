@@ -116,7 +116,10 @@
     # Study
     anki-bin
     qalculate-qt
-    zotero
+    (import inputs.nixpkgs-zotero {
+      inherit (pkgs.stdenv.hostPlatform) system;
+      config.allowUnfree = true;
+    }).zotero
   ];
 
   programs.obs-studio = {

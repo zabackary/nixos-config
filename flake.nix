@@ -5,6 +5,9 @@
     # NixOS official package source
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
+    # FIXME: remove once Zotero 11 comes out in nixpkgs
+    nixpkgs-zotero.url = "github:NixOS/nixpkgs/7a0f122f5090cf4c2ade2a13a0e229d4e19ba71f";
+
     # Home manager
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
