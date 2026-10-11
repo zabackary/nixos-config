@@ -80,6 +80,77 @@
     };
   };
 
+  # Taildrop receiver: text/links shared from Android arrive as <32 hex>.txt or
+  # <32 hex>.url; those get shown as notifications, anything else lands in Downloads.
+  systemd.user.services.taildrop-receive = {
+    Install.WantedBy = [ "graphical-session.target" ];
+    Unit = {
+      Description = "Receive Taildrop files and notify";
+      After = [ "graphical-session.target" ];
+      PartOf = [ "graphical-session.target" ];
+      OnFailure = "notify-failure@%n.service";
+    };
+    Service = {
+      Type = "simple";
+      Restart = "always";
+      RestartSec = "30s"; # tailscaled may not be up yet
+      ExecStart = pkgs.writeShellScript "taildrop-receive.sh" ''
+        set -euo pipefail
+        export PATH=${
+          lib.makeBinPath [
+            pkgs.coreutils
+            pkgs.gnugrep
+            pkgs.tailscale
+            pkgs.libnotify
+            pkgs.wl-clipboard
+            pkgs.xdg-utils
+          ]
+        }
+
+        tmp="$(mktemp -d "''${XDG_RUNTIME_DIR:-/tmp}/taildrop.XXXXXX")"
+        trap 'rm -rf "$tmp"' EXIT
+        downloads="''${XDG_DOWNLOAD_DIR:-$HOME/Downloads}"
+        mkdir -p "$downloads"
+
+        # Runs in the background so a notification waiting for a click doesn't
+        # block receiving more files.
+        show_text() {
+          local title="$1" text="$2" action
+          action="$(notify-send --app-name=taildrop --icon=edit-paste --action=copy=Copy --wait "$title" "$text" || true)"
+          if [ "$action" = copy ]; then
+            printf '%s' "$text" | wl-copy
+          fi
+        }
+
+        while true; do
+          tailscale file get --wait --conflict=rename "$tmp"
+          for f in "$tmp"/*; do
+            [ -f "$f" ] || continue
+            name="$(basename "$f")"
+            if [[ "$name" =~ ^[0-9a-f]{32}\.(txt|url)$ ]]; then
+              ext="''${BASH_REMATCH[1]}"
+              content="$(cat "$f")"
+              rm -f "$f"
+              if [ "$ext" = url ]; then
+                # Handle both a bare URL and a Windows-style [InternetShortcut] file.
+                url="$(printf '%s\n' "$content" | tr -d '\r' | grep -m1 -oE 'https?://[^[:space:]]+' || true)"
+                if [ -n "$url" ]; then
+                  xdg-open "$url" >/dev/null 2>&1 &
+                  show_text "Opened link from Taildrop" "$url" &
+                  continue
+                fi
+              fi
+              show_text "Text from Taildrop" "$content" &
+            else
+              mv --backup=numbered "$f" "$downloads/"
+              notify-send --app-name=taildrop --icon=folder-download "File received via Taildrop" "$name (saved to Downloads)" &
+            fi
+          done
+        done
+      '';
+    };
+  };
+
   # systemd.user.services.tailscale-systray = {
   #   Install.WantedBy = [ "graphical-session.target" ];
   #   Unit = {
