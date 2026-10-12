@@ -123,6 +123,28 @@
     }).zotero
   ];
 
+  # Dolphin context menu: strip metadata from images
+  xdg.dataFile."kio/servicemenus/remove-image-metadata.desktop" = {
+    executable = true; # KDE only trusts service menus that are executable
+    text = ''
+      [Desktop Entry]
+      Type=Service
+      MimeType=image/jpeg;image/png;image/tiff;image/webp;image/heic;image/heif;image/gif;
+      Actions=removeImageMetadata;removeImageMetadataBackup;
+      X-KDE-Priority=TopLevel
+
+      [Desktop Action removeImageMetadata]
+      Name=Remove Metadata
+      Icon=edit-clear-history
+      Exec=${pkgs.exiftool}/bin/exiftool -all= -overwrite_original %F
+
+      [Desktop Action removeImageMetadataBackup]
+      Name=Remove Metadata (Keep Backup)
+      Icon=edit-clear-history
+      Exec=${pkgs.exiftool}/bin/exiftool -all= %F
+    '';
+  };
+
   programs.obs-studio = {
     enable = true;
 
