@@ -226,7 +226,8 @@
     inputs.freeshow.packages.${stdenv.hostPlatform.system}.freeshow
     linux-wifi-hotspot
 
-    # Rounded corners for windows
+    # Plasma stuff
+    kdePackages.kdepim-addons
     kde-rounded-corners
     inputs.kwin-effects-better-blur-dx.packages.${stdenv.hostPlatform.system}.default
 
