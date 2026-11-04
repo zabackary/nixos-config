@@ -9,7 +9,6 @@
     "org.gnome.Totem"
     "org.gnome.Music"
     "org.gnome.baobab"
-    "org.gnome.Calendar"
     "org.gnome.clocks"
     "org.gnome.Solanum"
     "org.gnome.SoundRecorder"
