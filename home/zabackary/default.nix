@@ -50,32 +50,7 @@
     gimp3-with-plugins
     inkscape-with-extensions
     # openshot-qt # openshot-qt depends on qtwebengine, which is currently marked as insecure. Therefore, it doesn't have CI builds and I can't build one myself.
-    (
-      let
-        data = import ../../data/vscode.nix;
-      in
-      (vscode.overrideAttrs (oldAttrs: {
-        src = builtins.fetchTarball {
-          url = "https://update.code.visualstudio.com/${data.version}/linux-x64/stable";
-          sha256 = data.sha256;
-        };
-        version = data.version;
-        buildInputs =
-          oldAttrs.buildInputs
-          ++ (with pkgs; [
-            curl
-            webkitgtk_4_1
-            libsoup_3
-          ]);
-        # VSCode moved the binary location around 1.122.0 and nixpkgs-26.05
-        # doesn't have nixpkgs#525492 backported yet. I've hardcoded linux-x64 here
-        # FIXME: Remove this when the backport is in place
-        postPatch =
-          lib.replaceStrings [ "@vscode/ripgrep/bin/rg" ] [ "@vscode/ripgrep-universal/bin/linux-x64/rg" ]
-            oldAttrs.postPatch;
-
-      })).fhs
-    )
+    vscode.fhs
     (zed-editor.fhsWithPackages (
       pkgs: with pkgs; [
         nodejs_24
