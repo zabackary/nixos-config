@@ -226,6 +226,9 @@
     inputs.freeshow.packages.${stdenv.hostPlatform.system}.freeshow
     linux-wifi-hotspot
 
+    # GUI
+    keepassxc
+
     # Plasma stuff
     kdePackages.kdepim-addons
     kde-rounded-corners

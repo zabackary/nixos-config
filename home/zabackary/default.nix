@@ -64,7 +64,7 @@
     rustdesk-flutter
     rquickshare
 
-    keepassxc
+    # keepassxc is system-wide due to Polkit policy syncing.
 
     # Spell checking
     hunspell
