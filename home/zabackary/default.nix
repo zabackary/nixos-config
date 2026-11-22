@@ -92,10 +92,7 @@
     # Study
     anki-bin
     qalculate-qt
-    (import inputs.nixpkgs-zotero {
-      inherit (pkgs.stdenv.hostPlatform) system;
-      config.allowUnfree = true;
-    }).zotero
+    zotero
   ];
 
   # Dolphin context menu: strip metadata from images
