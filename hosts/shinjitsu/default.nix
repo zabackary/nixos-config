@@ -194,6 +194,12 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  # FIXME: remove once Zotero updates their FF. Zotero doesn't fetch from the
+  # web, so I don't think it's that insecure.
+  nixpkgs.config.permittedInsecurePackages = [
+    "firefox-esr-140-bin-unwrapped-140.17.0esr"
+  ];
+
   # Enable the Flakes feature and the accompanying new nix command-line tool
   nix.settings.experimental-features = [
     "nix-command"
