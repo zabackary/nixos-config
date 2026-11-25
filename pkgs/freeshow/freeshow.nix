@@ -32,5 +32,6 @@ appimageTools.wrapType2 {
   extraPkgs =
     pkgs: with pkgs; [
       libltc
+      libva
     ];
 }
